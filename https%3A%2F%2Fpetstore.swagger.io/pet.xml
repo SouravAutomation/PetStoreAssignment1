@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="pet" path="/v2/pet" id="0f13b028-5501-4a58-82d6-bf508ee32518" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="0f13b028-5501-4a58-82d6-bf508ee32518fileName">pet</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:resource name="Delete Pet{}" path="{id}" id="00339662-f393-4139-997d-7aff32b243fc">
+    <con:settings/>
+    <con:parameters>
+      <con:parameter required="true">
+        <con:name>id</con:name>
+        <con:value/>
+        <con:style>TEMPLATE</con:style>
+        <con:default/>
+      </con:parameter>
+    </con:parameters>
+    <con:method name="Method 1" id="5d6d2a7a-c012-4eb5-ab25-93f70f7fdbef" method="DELETE">
+      <con:settings/>
+      <con:parameters/>
+      <con:representation type="RESPONSE">
+        <con:mediaType>application/json</con:mediaType>
+        <con:status>200</con:status>
+        <con:params/>
+        <con:element xmlns:ns="https://petstore.swagger.io/v2/pet/1112223334445551101">ns:Response</con:element>
+      </con:representation>
+      <con:representation type="REQUEST">
+        <con:mediaType>application/json</con:mediaType>
+        <con:params/>
+      </con:representation>
+      <con:request name="Request 1" id="d0d8c618-d593-4ad0-90ea-e8c56fca2458" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://petstore.swagger.io</con:endpoint>
+        <con:request/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="id" value="${addNewPet#Response#$['id']}"/>
+        </con:parameters>
+        <con:parameterOrder>
+          <con:entry>id</con:entry>
+        </con:parameterOrder>
+      </con:request>
+    </con:method>
+  </con:resource>
+  <con:method name="Add Pet" id="d7841f96-4b7b-426d-8e90-2b17a140a3d8" method="POST">
+    <con:settings/>
+    <con:parameters/>
+    <con:representation type="FAULT">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>500</con:status>
+      <con:params/>
+      <con:element xmlns:pet="https://petstore.swagger.io/v2/pet">pet:Fault</con:element>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:element xmlns:pet="https://petstore.swagger.io/v2/pet">pet:Response</con:element>
+    </con:representation>
+    <con:request name="Request 1" id="75da458f-e4cb-4add-b8b6-5577222baee4" mediaType="application/json" postQueryString="false">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://petstore.swagger.io</con:endpoint>
+      <con:request>{
+  "id": 1112223334445551101,
+  "category": {
+    "id": 210,
+    "name": "Dinosaur"
+  },
+  "name": "Tyrannosaurus",
+  "photoUrls": [
+    "string"
+  ],
+  "tags": [
+    {
+      "id": 210,
+      "name": "reptile"
+    }
+  ],
+  "status": "available"
+}</con:request>
+      <con:originalUri>https://petstore.swagger.io/v2/pet</con:originalUri>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters/>
+      <con:parameterOrder/>
+    </con:request>
+  </con:method>
+  <con:method name="Update Pet" id="861d49bd-e489-4969-9602-f0172b3ef102" method="PUT">
+    <con:settings/>
+    <con:parameters>
+      <con:parameter required="true">
+        <con:name>id</con:name>
+        <con:value/>
+        <con:style>QUERY</con:style>
+        <con:default/>
+      </con:parameter>
+    </con:parameters>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:element xmlns:pet="https://petstore.swagger.io/v2/pet">pet:Response</con:element>
+    </con:representation>
+    <con:representation type="FAULT">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>415</con:status>
+      <con:params/>
+      <con:element>apiResponse</con:element>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/x-www-form-urlencoded</con:mediaType>
+      <con:params/>
+    </con:representation>
+    <con:request name="Request 1" id="870e9daf-092d-49dd-bd56-6dec83fa9c04" mediaType="application/json" postQueryString="false">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://petstore.swagger.io</con:endpoint>
+      <con:request>{
+  "status": "sold"
+}</con:request>
+      <con:originalUri>https://petstore.swagger.io/v2/pet</con:originalUri>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:entry key="id" value="${addNewPet#Response#$['id']}"/>
+      </con:parameters>
+      <con:parameterOrder>
+        <con:entry>id</con:entry>
+      </con:parameterOrder>
+    </con:request>
+  </con:method>
+</con:resource>
